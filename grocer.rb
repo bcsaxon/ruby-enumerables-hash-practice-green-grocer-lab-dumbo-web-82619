@@ -2,7 +2,7 @@ def consolidate_cart(cart = {})
   new_cart = {}
   cart.each {|object|
     object.each {|item,info|
-      if new_cart[item] 
+      if new_cart[item]
         new_cart[item][:count] += 1
       else
         new_cart[item] = info
@@ -14,7 +14,7 @@ def consolidate_cart(cart = {})
 end
 
 def apply_coupons(cart, coupons)
- 
+
     coupons.each { |deal|
     item = deal[:item]
     couponed_item = "#{item} W/COUPON"
@@ -44,12 +44,12 @@ def apply_clearance(cart)
   cart.map { |item,info|
     if info[:clearance]
     item_price = info[:price]
-    
+
     item_discount = (item_price * 0.20).round(2)
     item_final = item_price - item_discount
     info[:price] = item_final
     end
-  
+
   }
   cart
 end
